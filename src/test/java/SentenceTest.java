@@ -23,6 +23,16 @@ public class SentenceTest {
     }
 
     @Test
+    public void testLongestDashWord() {
+        String testSentence = "long dash-dash";
+
+        Pair pair = sentence.getLongestWord(testSentence);
+
+        Assert.assertEquals(9, pair.getValue());
+        Assert.assertEquals("dash-dash", pair.getName());
+    }
+
+    @Test
     public void testLongestApostrophe() {
         String testSentence = "now it's";
 
@@ -68,6 +78,16 @@ public class SentenceTest {
 
         Assert.assertEquals(2, pair.getValue());
         Assert.assertEquals("is", pair.getName());
+    }
+
+    @Test
+    public void testShortestDashWord() {
+        String testSentence = "longest doh-oh";
+
+        Pair pair = sentence.getShortestWord(testSentence);
+
+        Assert.assertEquals(6, pair.getValue());
+        Assert.assertEquals("doh-oh", pair.getName());
     }
 
     @Test

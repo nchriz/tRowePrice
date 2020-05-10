@@ -6,9 +6,11 @@ Only dependency is JUnit v. 4.12.
 
 ## Assumptions 
 1. Apostrophe: a word is not split by apostrophe
-2. Numbers: should be treated as words
-3. Special characters: should not bind word together
-4. If empty sentence is given, return empty string and value zero
+2. Dash: a word is not split by dash
+3. Numbers: should be treated as words
+4. Special characters: should not bind word together
+5. If empty sentence is given, return empty string and value zero
+6. The last Longest (or Shortest) word will be returned. Removing the equal will change the code to save (and return) the first Longest (or Shortest) word
 
 ### Return value
 

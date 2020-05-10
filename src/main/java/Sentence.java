@@ -1,28 +1,27 @@
 import model.Pair;
 
+import java.util.function.BiFunction;
+
 public class Sentence {
 
-    public Pair getLongestWord(String sentence) {
+    private Pair getWord(String sentence, BiFunction<Integer, Integer, Boolean> predicate) {
         if (sentence.length() == 0)
             return new Pair("", 0);
         String[] words = sentence.split("[^\\w'-]+");
-        String longest = words[0];
+        String saved = words[0];
         for (String word : words)
-            if (word.length() >= longest.length())
-                longest = word;
+            if (predicate.apply(word.length(), saved.length()))
+                saved = word;
 
-        return new Pair(longest, longest.length());
+        return new Pair(saved, saved.length());
     }
 
     public Pair getShortestWord(String sentence) {
-        if (sentence.length() == 0)
-            return new Pair("", 0);
-        String[] words = sentence.split("[^\\w'-]+");
-        String shortest = words[0];
-        for (String word : words)
-            if (word.length() <= shortest.length())
-                shortest = word;
-
-        return new Pair(shortest, shortest.length());
+        return getWord(sentence, (M, N) -> M <= N);
     }
+
+    public Pair getLongestWord(String sentence) {
+        return getWord(sentence, (M, N) -> M >= N);
+    }
+
 }
