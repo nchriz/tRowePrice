@@ -36,3 +36,5 @@ As project using Maven, to test locally you need to have Maven installed on your
 1. Open project in Intellij
 2. Open package src -> test -> java
 3. Right click on SentenceTest and choose 'Run SentenceTest'
+
+# End
